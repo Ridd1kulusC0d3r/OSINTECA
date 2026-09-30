@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Ridd1kulusC0d3r/OSINTECA/blob/main/schema/resource.schema.json",
+  "title": "OSINTECA Resource Catalog",
+  "type": "object",
+  "required": [
+    "catalog_version",
+    "resources"
+  ],
+  "properties": {
+    "catalog_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generated_policy": {
+      "type": "string"
+    },
+    "resources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "name",
+          "canonical_url",
+          "jurisdictions",
+          "disciplines",
+          "domains",
+          "use_cases",
+          "source_type",
+          "access",
+          "languages",
+          "status",
+          "last_verified"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "canonical_url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "jurisdictions": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^(GLOBAL|[A-Z]{2}(-[A-Z0-9]{1,3})?)$"
+            }
+          },
+          "disciplines": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "OSINT",
+                "HUMINT",
+                "SIGINT",
+                "COMINT",
+                "ELINT",
+                "FISINT",
+                "GEOINT",
+                "IMINT",
+                "MASINT",
+                "TECHINT",
+                "CYBINT",
+                "CTI",
+                "MEDINT",
+                "FININT",
+                "DOMEX",
+                "WEBINT",
+                "DNINT",
+                "SOCMINT"
+              ]
+            }
+          },
+          "domains": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            }
+          },
+          "use_cases": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]*$"
+            }
+          },
+          "source_type": {
+            "enum": [
+              "official",
+              "academic",
+              "nonprofit",
+              "commercial",
+              "community",
+              "open-source"
+            ]
+          },
+          "access": {
+            "enum": [
+              "free",
+              "freemium",
+              "paid",
+              "account",
+              "api-key",
+              "local",
+              "mixed"
+            ]
+          },
+          "languages": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "status": {
+            "enum": [
+              "verified",
+              "needs-review",
+              "changed",
+              "broken-unsafe",
+              "historical"
+            ]
+          },
+          "last_verified": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "notes": {
+            "type": "string"
+          },
+          "intelligence_levels": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "strategic",
+                "operational",
+                "tactical"
+              ]
+            }
+          },
+          "cycle_stages": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "direction",
+                "collection",
+                "processing",
+                "analysis",
+                "dissemination",
+                "feedback"
+              ]
+            }
+          },
+          "target_inputs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "aircraft-id",
+                "asn",
+                "audio",
+                "bssid-ssid",
+                "cidr",
+                "coordinates",
+                "crypto-address",
+                "cve-id",
+                "dataset",
+                "document",
+                "domain",
+                "email",
+                "event-data",
+                "file",
+                "file-hash",
+                "image",
+                "ip-address",
+                "keyword",
+                "location",
+                "name",
+                "onion-service",
+                "organization-name",
+                "phone-number",
+                "repository-url",
+                "text",
+                "url",
+                "username",
+                "video",
+                "no-fixed-input"
+              ]
+            }
+          },
+          "implementation_type": {
+            "type": "string",
+            "enum": [
+              "cli",
+              "desktop",
+              "library",
+              "web-app",
+              "browser-extension",
+              "framework",
+              "platform",
+              "dataset-tool",
+              "skill",
+              "skill-pack",
+              "plugin",
+              "mcp-server",
+              "agent",
+              "agent-plus-mcp",
+              "service",
+              "meta-index"
+            ]
+          },
+          "upstream_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9-]+$"
+            }
+          }
+        }
+      }
+    }
+  }
+}
