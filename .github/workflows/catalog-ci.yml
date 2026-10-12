@@ -33,3 +33,5 @@ jobs:
         run: python scripts/generate_catalog.py --check
       - name: Check generated target-input index
         run: python scripts/generate_inputs.py --check
+      - name: Test catalog drift utility (synthetic, offline)
+        run: python -m unittest discover -s tests -v

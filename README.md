@@ -9,6 +9,8 @@
 [![Ethics](https://img.shields.io/badge/use-ethical%20%26%20lawful-success)](ETHICS.md)
 [![AI Assisted](https://img.shields.io/badge/curation-AI--assisted-orange)](#ai-assisted-curation)
 
+> **Catalog governance (2026-10-12):** OSINTECA shares all 76 current resource IDs with OSINT4ALL, which has 90 entries. Before adding parallel copies, see the [catalog overlap audit, ownership proposal and read-only drift check](docs/ECOSYSTEM-BOUNDARIES.md). This is a proposed boundary, not a completed migration.
+
 ## OSINTECA mission / Missão
 
 **One place for the analyst to start, pivot, validate and preserve.**  
